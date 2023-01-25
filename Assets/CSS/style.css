@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+header {
+    background-color: rgb(95, 175, 129);
+    color:rgb(43, 66, 100);
+    padding: 0;
+}
+
+header h1 {
+    margin:0;
+    padding: 0;
+}
+
+header h2 {
+    margin:0;
+    padding: 0;
+}
+
+aside {
+    font-size: 120%;
+}
+
+aside h3 {
+    font-size: 2.5rem;
+}
+aside div {
+    width: max-content;
+}
+
+aside div button {
+    width: max-content;
+}
+aside h4 {
+    font-size: 35px;
+}
+
+.container {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* 
+.card {
+    display: flex;
+
+} */
+
+#card-inline {
+    display: flex;
+}
+
+#card-center div{
+    display: flex;
+    background-color: #fff; 
+    position: relative;
+}
+
+button {
+    display: flex;
+    padding: 3%;
+    margin: 3%;
+    color: rgb(251, 251, 252);
+    background-color:rgb(83, 131, 153);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+button:hover {
+        font-size: 98%;
+        font-weight: bolder;
+        color:rgb(47, 74, 87);
+        background-color:rgb(196, 195, 195);
+        box-shadow: 0 0 3px 3px rgb(92, 140, 212);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card-body p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+
+.card-body div {
+    display: flex;
+}
