@@ -9,7 +9,8 @@ var now = new Date();
 $("#currentDay").text(dayjs(now).format('dddd, MMMM DD, YYYY h:mm A'));
 
 // Event listener for search button
-submitBtn.addEventListener('click', function() {
+submitBtn.addEventListener('click', function(event) {
+    event.preventDefault()
     var cityName = cityInput.value
         if(cityName === "") {
             return;
@@ -24,12 +25,12 @@ submitBtn.addEventListener('click', function() {
 localStorage.setItem('searched-city', JSON.stringify(dropCity));
 
 displayHistory();
-
 });
 
 // displays searched city as buttons from local storage
 function displayHistory() {
     var history = JSON.parse(localStorage.getItem('searched-city')) || []; 
+    document.getElementById("history-div").innerHTML="";
   
 $.each(history, function(index, value) {
     var button = document.createElement('button');
@@ -43,9 +44,6 @@ $.each(history, function(index, value) {
 });
 }
 
-$('#submit').submit(function(){
-    $('#submit', this).attr('disabled', 'disabled');
- })
 // Ajax call for current weather info using Open Weather API
 function getCityWeather(cityName) {
     var url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIkey}&units=imperial`;
@@ -68,7 +66,8 @@ function showCurrent(data) {
     <div class="column">
         <div class="card">
         <div class="card-body">
-            <h2>Current Weather for: ${cityName}</h2>
+            
+            <h2><img src="http://openweathermap.org/img/wn/${data.weather[0].icon}.png"/>Current Weather for: ${cityName}</h2>
           <p>Temp: ${data.main.temp} °F</p>
           <p>Humidity: ${data.main.humidity} %</p>
           <p>Wind: ${data.wind.speed} MPH</p>
@@ -86,7 +85,7 @@ function showFiveDay(data) {
         if (i % 8 === 0) {
             var currentDay  = data.list[i] 
         cardFive += `
-        <div class="row">
+        <div class="col-2">
         <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">${dayjs(currentDay.dt_txt).format('ddd. MMM. DD, YYYY')}</h3>
